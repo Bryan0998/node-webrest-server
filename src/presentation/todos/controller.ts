@@ -29,6 +29,7 @@ export class TodosController {
     }
 
     public createTodo = async (req: Request, res: Response) => {
+        console.log('entra a create, req.body:',req.body);
         const [error, createTodoDto] = CreateTodoDto.create(req.body);
         if ( error ){
             return res.status(400).json( { error });
@@ -37,6 +38,8 @@ export class TodosController {
         const todo = await prisma.todo.create({
             data: createTodoDto!
         });
+
+        console.log('Termina: ',todo);
 
         res.json(todo);
     }
