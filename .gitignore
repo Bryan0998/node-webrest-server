@@ -1,3 +1,4 @@
-node_modules
-keys
+node_modules/
+keys/
 .env
+db-data/
